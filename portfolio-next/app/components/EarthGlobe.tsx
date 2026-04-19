@@ -98,6 +98,8 @@ export default function EarthGlobe() {
 
     // Setup
     function setup() {
+      if (!canvas || !ctx) return;
+      
       const dpr = window.devicePixelRatio || 1;
       W = window.innerWidth;
       H = window.innerHeight;
