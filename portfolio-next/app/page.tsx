@@ -1,4 +1,5 @@
 import EarthGlobe from './components/EarthGlobe';
+import SkillsMarquee from './components/SkillsMarquee';
 
 export default function Home() {
   return (
@@ -10,23 +11,34 @@ export default function Home() {
       <EarthGlobe />
 
       {/* Normal scrollable content */}
-      <section id="content" className="relative z-5 bg-black min-h-screen">
+      <section id="content" className="relative z-50 bg-black min-h-screen">
         <div className="max-w-[480px] mx-auto px-6 py-20">
           
           <div className="mb-20">
-            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222]">
-              About
+            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222] relative">
+              <span className="relative z-10">Story</span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl -z-10"></span>
             </h2>
             <p className="text-[0.85rem] leading-[1.7] text-[#666] font-light">
-              I design and build software that scales. With years of experience across
-              full-stack development, cloud infrastructure, and developer tooling, I
-              focus on shipping clean, maintainable systems that solve real problems.
+              I'm a Korean-Canadian software engineer based in Toronto, Ontario. I build software
+              that solves real problems, with experience spanning full-stack development, cloud
+              infrastructure, and developer tooling. I'm focused on writing clean, maintainable
+              code and continuously expanding my technical depth. I thrive on tackling complex
+              challenges and turning them into elegant solutions.
+            </p>
+            <p className="text-[0.85rem] leading-[1.7] text-[#666] font-light mt-4">
+              Even outside of my professional career, I'm passionate about empowering others. During my time at university,
+              I launched free tutoring and job readiness programs that helped over 2,000 students
+              flourish in their academic and professional journeys. Now, I'm ready to bring that
+              same commitment to making an impact—building technology that matters and fostering
+              communities that thrive.
             </p>
           </div>
 
           <div className="mb-20">
-            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222]">
-              Experience
+            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222] relative">
+              <span className="relative z-10">Experience</span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-20 h-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl -z-10"></span>
             </h2>
             
             <div className="mb-9">
@@ -34,144 +46,119 @@ export default function Home() {
                 2024 — Present
               </span>
               <h3 className="text-[0.9rem] font-medium my-1.5 text-white">
-                Senior Software Engineer
+                Software Development Engineer I
               </h3>
+              <p className="text-[0.75rem] text-[#999] mb-2">Amazon Web Services</p>
               <p className="text-[0.8rem] text-[#666]">
-                Building next-generation developer tools and platform infrastructure. Focused on performance, reliability, and developer experience.
+                Building authentication and authorization systems on the AWS Identity team, ensuring secure access control at scale.
               </p>
             </div>
 
             <div className="mb-9">
               <span className="text-[0.65rem] text-[#999] tracking-[0.1em] uppercase">
-                2022 — 2024
+                2023
               </span>
               <h3 className="text-[0.9rem] font-medium my-1.5 text-white">
-                Software Engineer
+                Software Development Engineer Intern
               </h3>
+              <p className="text-[0.75rem] text-[#999] mb-2">Amazon Web Services</p>
               <p className="text-[0.8rem] text-[#666]">
-                Designed and implemented microservices architecture serving millions of requests daily. Led migration from monolith to event-driven systems.
+                Developed infrastructure tooling for rapid provisioning and teardown of CI/CD workflows, accelerating deployment cycles.
               </p>
             </div>
 
             <div className="mb-9">
               <span className="text-[0.65rem] text-[#999] tracking-[0.1em] uppercase">
-                2020 — 2022
+                2022
+              </span>
+              <h3 className="text-[0.9rem] font-medium my-1.5 text-white">
+                Software Developer
+              </h3>
+              <p className="text-[0.75rem] text-[#999] mb-2">Department of National Defence, Government of Canada</p>
+              <p className="text-[0.8rem] text-[#666]">
+                Implemented encryption and decryption protocols while bootstrapping critical network services for secure communications.
+              </p>
+            </div>
+
+            <div className="mb-9">
+              <span className="text-[0.65rem] text-[#999] tracking-[0.1em] uppercase">
+                2021
               </span>
               <h3 className="text-[0.9rem] font-medium my-1.5 text-white">
                 Full Stack Developer
               </h3>
+              <p className="text-[0.75rem] text-[#999] mb-2">Qualiti7</p>
               <p className="text-[0.8rem] text-[#666]">
-                Built responsive web applications and RESTful APIs. Introduced CI/CD pipelines and automated testing practices across the team.
+                Built a comprehensive booking and registration platform, streamlining operations for quality assurance services.
+              </p>
+            </div>
+
+            <div className="mb-9">
+              <span className="text-[0.65rem] text-[#999] tracking-[0.1em] uppercase">
+                2020
+              </span>
+              <h3 className="text-[0.9rem] font-medium my-1.5 text-white">
+                Founder & Developer
+              </h3>
+              <p className="text-[0.75rem] text-[#999] mb-2">Saint John Donation Portal</p>
+              <p className="text-[0.8rem] text-[#666]">
+                Created a donation platform to amplify visibility for local nonprofits in my hometown community.
               </p>
             </div>
           </div>
 
           <div className="mb-20">
-            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222]">
-              Skills
+            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222] relative">
+              <span className="relative z-10">Skills</span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl -z-10"></span>
             </h2>
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-[#999] mb-2">
-                  Languages
-                </h3>
-                <p className="text-[0.75rem] leading-[1.6] text-[#666]">
-                  TypeScript, JavaScript, Python, Go, Rust, Java
-                </p>
-              </div>
-              <div>
-                <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-[#999] mb-2">
-                  Frontend
-                </h3>
-                <p className="text-[0.75rem] leading-[1.6] text-[#666]">
-                  React, Next.js, Vue, Svelte, CSS/Tailwind
-                </p>
-              </div>
-              <div>
-                <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-[#999] mb-2">
-                  Backend
-                </h3>
-                <p className="text-[0.75rem] leading-[1.6] text-[#666]">
-                  Node.js, Express, FastAPI, gRPC, GraphQL
-                </p>
-              </div>
-              <div>
-                <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-[#999] mb-2">
-                  Infrastructure
-                </h3>
-                <p className="text-[0.75rem] leading-[1.6] text-[#666]">
-                  AWS, Docker, Kubernetes, Terraform, CI/CD
-                </p>
-              </div>
-            </div>
+            <SkillsMarquee />
           </div>
 
           <div className="mb-20">
-            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222]">
-              Projects
-            </h2>
-            
-            <div className="border border-[#222] p-6 mb-5 rounded-sm">
-              <h3 className="text-[0.85rem] font-medium mb-2.5 text-white">
-                Distributed Task Engine
-              </h3>
-              <p className="text-[0.78rem] mb-3 text-[#666]">
-                A fault-tolerant distributed task processing system built with Go and Redis. Handles millions of jobs per day with automatic retries and dead-letter queues.
-              </p>
-              <span className="text-[0.65rem] text-[#999] tracking-[0.05em]">
-                Go · Redis · gRPC · Kubernetes
-              </span>
-            </div>
-
-            <div className="border border-[#222] p-6 mb-5 rounded-sm">
-              <h3 className="text-[0.85rem] font-medium mb-2.5 text-white">
-                Real-Time Collaboration SDK
-              </h3>
-              <p className="text-[0.78rem] mb-3 text-[#666]">
-                WebSocket-based SDK enabling real-time document collaboration with conflict resolution using CRDTs. Used by 50+ teams internally.
-              </p>
-              <span className="text-[0.65rem] text-[#999] tracking-[0.05em]">
-                TypeScript · WebSockets · CRDTs · React
-              </span>
-            </div>
-
-            <div className="border border-[#222] p-6 mb-5 rounded-sm">
-              <h3 className="text-[0.85rem] font-medium mb-2.5 text-white">
-                Infrastructure as Code Platform
-              </h3>
-              <p className="text-[0.78rem] mb-3 text-[#666]">
-                Internal platform for provisioning and managing cloud resources through declarative configs. Reduced deployment time by 70%.
-              </p>
-              <span className="text-[0.65rem] text-[#999] tracking-[0.05em]">
-                Python · Terraform · AWS CDK · Docker
-              </span>
-            </div>
-          </div>
-
-          <div className="mb-20">
-            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222]">
-              Get in Touch
+            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222] relative">
+              <span className="relative z-10">Get in Touch</span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl -z-10"></span>
             </h2>
             <p className="text-[0.85rem] leading-[1.7] text-[#666] font-light mb-5">
               I'm always open to interesting conversations and new opportunities.
               Whether you have a project in mind or just want to connect, feel free to reach out.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
+              <a href="https://github.com/Ksdsk" target="_blank" rel="noopener noreferrer" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
                 GitHub
               </a>
-              <a href="#" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
+              <a href="https://www.linkedin.com/in/smdanielkang/" target="_blank" rel="noopener noreferrer" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
                 LinkedIn
               </a>
-              <a href="#" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
+              <a href="mailto:soonmoc@proton.me" className="text-[0.75rem] text-white no-underline border-b border-[#333] pb-0.5 hover:border-white transition-colors">
                 Email
+              </a>
+            </div>
+          </div>
+
+          <div className="mb-20">
+            <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.15em] text-[#999] mb-6 pb-3 border-b border-[#222] relative">
+              <span className="relative z-10">More</span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl -z-10"></span>
+            </h2>
+            <div className="flex flex-col gap-3">
+              <a href="/random" target="_blank" rel="noopener noreferrer" className="relative text-[0.8rem] text-[#999] hover:text-white transition-colors border border-[#222] rounded-sm p-4 hover:border-[#444] group">
+                <span className="block font-medium mb-1 group-hover:text-white">Random Things About Me</span>
+                <span className="text-[0.7rem] text-[#666]">Hobbies, interests, and fun facts</span>
+                <svg className="absolute top-4 right-4 w-4 h-4 text-[#666] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             </div>
           </div>
 
           <footer className="pt-10 border-t border-[#222]">
             <p className="text-[0.65rem] text-[#666] text-center">
-              © 2026 Daniel. Built with care.
+              Daniel Kang
+            </p>
+            <p className="text-[0.65rem] text-[#666] text-center mt-1">
+              Built with care. Updated April 2026.
             </p>
           </footer>
 

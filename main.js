@@ -1,6 +1,6 @@
 // ── Configuration ────────────────────────────────────────────
 const PHRASE = "Hello, my name is Daniel. I'm a software engineer bringing expertise from ";
-const COMPANIES = ["Amazon Web Services", "Department of National Defence", "Dalhousie University"];
+const COMPANIES = ["Amazon Web Services", "Dalhousie University", "Government of Canada"];
 const CHAR_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*<>{}[]|/\\~";
 
 // Toronto, Ontario, Canada coordinates

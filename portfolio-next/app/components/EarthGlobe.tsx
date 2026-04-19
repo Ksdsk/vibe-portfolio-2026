@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Configuration
 const PHRASE = "Hello, my name is Daniel. I'm a software engineer bringing expertise from ";
-const COMPANIES = ["Amazon", "Google", "Startup Co.", "Open Source", "The Cloud"];
+const COMPANIES = ["Amazon Web Services", "Dalhousie University", "Government of Canada"];
 const CHAR_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*<>{}[]|/\\~";
 
 // Toronto coordinates
@@ -42,6 +42,43 @@ interface CellArray extends Array<Cell> {
 export default function EarthGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const [showBounce, setShowBounce] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  
+  useEffect(() => {
+    // Show scroll indicator after 10 seconds if user hasn't scrolled
+    const showTimer = setTimeout(() => {
+      if (!hasScrolled) {
+        setShowScrollIndicator(true);
+      }
+    }, 10000);
+
+    // Listen for scroll events
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setHasScrolled(true);
+        setShowScrollIndicator(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      clearTimeout(showTimer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasScrolled]);
+  
+  useEffect(() => {
+    // Trigger bounce animation every 5 seconds
+    const bounceInterval = setInterval(() => {
+      setShowBounce(false);
+      setTimeout(() => setShowBounce(true), 100);
+    }, 5000);
+
+    return () => clearInterval(bounceInterval);
+  }, []);
   
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -341,17 +378,19 @@ export default function EarthGlobe() {
       const rawP = Math.min(1, Math.max(0, scrollY / (H * 1.5)));
       const progress = ease(rawP);
 
-      const fadeStart = H * 2.0;
-      const fadeEnd = H * 2.7;
+      const fadeStart = H * 1.8;
+      const fadeEnd = H * 2.2;
       const fade = Math.min(1, Math.max(0, (scrollY - fadeStart) / (fadeEnd - fadeStart)));
 
       if (fade >= 1) {
         viewport.classList.add('opacity-0');
+        viewport.style.pointerEvents = 'none';
         animationId = requestAnimationFrame(draw);
         return;
       }
       viewport.classList.remove('opacity-0');
       viewport.style.opacity = String(1 - fade);
+      viewport.style.pointerEvents = 'auto';
 
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, W, H);
@@ -478,6 +517,28 @@ export default function EarthGlobe() {
   return (
     <div ref={viewportRef} className="fixed inset-0 z-10 flex items-center justify-center bg-black transition-opacity duration-400">
       <canvas ref={canvasRef} className="block" />
+      
+      {/* Scroll indicator - only show after 10 seconds if user hasn't scrolled */}
+      {showScrollIndicator && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className={`flex flex-col items-center gap-2 ${showBounce ? 'animate-bounce-slow' : ''}`}>
+            <span className="text-[0.65rem] text-[#666] uppercase tracking-wider">Scroll</span>
+            <svg 
+              className="w-6 h-6 text-[#666]" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
