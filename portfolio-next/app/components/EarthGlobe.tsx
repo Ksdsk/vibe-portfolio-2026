@@ -364,6 +364,8 @@ export default function EarthGlobe() {
     }
 
     function draw(ts: number) {
+      if (!ctx || !viewport) return;
+      
       if (!lastTime) lastTime = ts;
       const dt = ts - lastTime;
       lastTime = ts;
@@ -475,6 +477,8 @@ export default function EarthGlobe() {
     }
 
     function drawCompany(ts: number, masterAlpha: number) {
+      if (!ctx) return;
+      
       if (companyTimer > COMPANY_INTERVAL) {
         companyTimer = 0;
         companyIndex = (companyIndex + 1) % COMPANIES.length;
